@@ -1,0 +1,4046 @@
+/* ベーススタイル */
+body {
+    font-family: 'Playfair Display', serif, sans-serif;
+    font-size: 15px;
+    background: linear-gradient(to right,
+            rgb(0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 40%,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgb(0, 0, 0) 100%),
+        url('../imgs/common/backgroud.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.6;
+    margin: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+noscript {
+    display: none;
+}
+
+/* サイズ以上の余白を表示しない（レスポンシブ確認の時） */
+.wrapper {
+    overflow: hidden;
+}
+
+/* 改行の制御 (スマホ用改行)*/
+.mbr {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mbr {
+        display: block;
+    }
+}
+
+/* 改行の制御 (PC用改行)*/
+.pbr {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .pbr {
+        display: none;
+    }
+}
+
+/* アニメーションの初期状態（非表示） */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* アニメーション適用時 */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* グラデーション用のコンテナ */
+.gradient-container {
+    height: 20px;
+    background: linear-gradient(to right, #6D5134 0%, #B3936E 33.9%, #B2926E 67%, #6D5134 100%);
+    margin: 0;
+}
+
+/* ヘッダーの共通スタイル */
+.top-header {
+    max-width: 100%;
+    height: auto;
+    background-color: #f8f8f8;
+    padding: 0.5vw 1vw;
+    text-align: left;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.top-header a img {
+    max-width: 80px;
+    height: auto;
+    display: block;
+}
+
+.header-link {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #000;
+    font-family: "Yu Gothic", "游ゴシック", sans-serif;
+    text-decoration: none;
+}
+
+/* メディアクエリで768px以下のときにスタイルを調整 */
+@media (max-width: 768px) {
+    .top-header img {
+        width: 50px;
+    }
+
+    .header-link {
+        font-size: 0.45rem;
+    }
+}
+
+/* ヘッダーコンテナの全体スタイル */
+.header-container {
+    position: relative;
+    width: 100%;
+    height: clamp(200px, 35vw, 600px);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* PC用画像 */
+.header-image-pc {
+    display: block !important;
+    width: 100%;
+    height: auto;
+}
+
+/* SP用画像 */
+.header-image-mobile {
+    display: none !important;
+    width: 100%;
+    height: auto;
+}
+
+/* SPサイズで画像を切り替え */
+@media screen and (max-width: 768px) {
+    .header-image-pc {
+        display: none !important;
+    }
+
+    .header-image-mobile {
+        display: block !important;
+    }
+}
+
+/* ヘッダー画像全体のスタイルを上書きしないように調整 */
+.header-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* ヘッダー内のテキストスタイル */
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 10;
+}
+
+/* 大きなテキストのスタイル */
+.header-text h1 {
+    font-size: clamp(2.2em, 4.5vw, 6.0em);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin: 0;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* 小さいテキストのスタイル */
+.header-text .header-subtext {
+    font-size: clamp(1.5em, 2.5vw, 2.0em);
+    letter-spacing: 0.3em;
+    margin: 10px auto 0;
+    display: inline-block;
+    width: 100%;
+    max-width: calc(100%);
+    box-sizing: border-box;
+}
+
+/* メディアクエリでレスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .header-text {
+        padding: 0 10px;
+    }
+
+    .header-text h1 {
+        font-size: clamp(1.8em, 4vw, 4.5em);
+        letter-spacing: 0.03em;
+    }
+
+    .header-text .header-subtext {
+        font-size: clamp(1.2em, 2vw, 1.8em);
+        letter-spacing: 0.2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-text {
+        padding: 0 5px;
+    }
+
+    .header-text h1 {
+        font-size: clamp(1.5em, 3.5vw, 3.8em);
+        letter-spacing: 0.02em;
+    }
+
+    .header-text .header-subtext {
+        font-size: clamp(1em, 1.8vw, 1.5em);
+        letter-spacing: 0.15em;
+    }
+}
+
+/* ここからトップページ（top_page.html）の装飾 */
+/* カルーセルのコンテナ */
+.swiper-container {
+    width: 100%;
+    height: clamp(60vh 5vh 80vh);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 常に表示されるテキスト */
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.carousel-text h1 {
+    font-size: 4.5vw;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.carousel-text p {
+    font-size: 1.7vw;
+    margin: 0;
+    letter-spacing: 0.37em;
+    white-space: nowrap;
+}
+
+/* 画像ギャラリーのセクションをフレックスボックスで中央揃えにする */
+#image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: -100px;
+    margin-bottom: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 各画像アイテムのスタイル */
+.gallery-item {
+    flex: 1 1 calc(33.333% - 40px);
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時にズームイン効果を追加 */
+.gallery-item:hover .gallery-image {
+    transform: scale(1.02);
+}
+
+/* キャプションのテキストを画像上に表示 */
+.caption {
+    position: absolute;
+    color: #000;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.caption p {
+    font-size: 2.0vw;
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+
+}
+
+/* メディアクエリでモバイル表示に対応 */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 100%;
+        margin-bottom: 50px;
+    }
+
+    .caption p {
+        font-size: 5.5vw;
+    }
+}
+
+/* 実例紹介セクション全体 */
+#examples {
+    padding: 20px 60px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 画像コンテナのスタイル */
+.examples-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 30px;
+    padding-top: 50px;
+    border: 2px solid white;
+    position: relative;
+}
+
+/* セクションタイトル */
+.section-title {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    text-align: center;
+    z-index: 1;
+    padding: 0px 20px;
+    background-color: #000;
+    color: white;
+    white-space: nowrap;
+}
+
+/* タイトル内のテキスト */
+.section-title span {
+    font-size: 2.5rem;
+}
+
+/* 各アイテムのスタイル */
+.top-example-item {
+    position: relative;
+    flex: 1 1 calc(50% - 40px);
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+}
+
+.top-example-item img.example-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時にズームイン効果を追加 */
+.top-example-item:hover .example-image {
+    transform: scale(1.03);
+}
+
+/* 詳しく見るボタン */
+.top-example-item a img.detail-button {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* メディアクエリでモバイル表示に対応 */
+@media (max-width: 768px) {
+    .examples-container {
+        flex-direction: column;
+        padding: 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .top-example-item {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        top: -15px;
+        font-size: 0.8rem;
+    }
+
+    .section-title span {
+        font-size: 1rem;
+    }
+}
+
+/* コンテンツ全体をFlexboxで中央揃えに配置 */
+#content {
+    display: flex;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 15px);
+    margin: 50px 50px;
+}
+
+/* テキスト部分のスタイル */
+.text-content {
+    width: 100%;
+    max-width: 30vw;
+    color: white;
+    font-size: clamp(1.2em, 1.8vw, 2.0em);
+    line-height: 2.0em;
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+    display: flex;
+    /* Flexboxを有効化 */
+    align-items: center;
+    /* 垂直方向中央揃え */
+}
+
+/* デフォルトでは改行を表示 */
+.mobile-hide {
+    display: inline;
+}
+
+/* 画像部分のスタイル */
+.image-content {
+    display: flex;
+    justify-content: center;
+}
+
+.map-image {
+    width: 150%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* モバイル版での縦並びとテキストの制限 */
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .text-content {
+        max-width: 100%;
+        display: block;
+        overflow: visible;
+        text-align: center;
+        white-space: normal;
+        font-size: clamp(0.8em, 3.0vw, 1.0em);
+        line-height: 1.8em;
+        padding-top: 20px;
+    }
+
+    .image-content {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+}
+
+/* EVENTセクション全体のスタイル */
+#event {
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+    padding: clamp(20px, 5vw, 30px);
+    background-color: #000;
+}
+
+/* EVENTの大きいタイトル */
+.event-title h1 {
+    font-size: clamp(4em, 7vw, 7em);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(62, 58, 57, 1);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* EVENTのメインテキスト */
+.event-title p {
+    font-size: clamp(1.0em, 3vw, 2em);
+    font-weight: 400;
+    margin: clamp(10px, 2vw, 20px) 0;
+    line-height: 1.6;
+    color: white;
+    text-align: center;
+}
+
+/* 横棒線画像のスタイル */
+.event-divider {
+    margin: clamp(20px, 5vw, 40px) 0;
+    /* 上下に適度な余白を追加 */
+}
+
+.divider-image {
+    max-width: 90%;
+    /* 幅に合わせて拡大縮小 */
+    height: auto;
+}
+
+/* サブタイトルのスタイル */
+.event-subtitle {
+    margin-top: clamp(20px, 5vw, 40px);
+    font-size: clamp(1em, 2.5vw, 1.9em);
+    color: #fff;
+    line-height: 1.8;
+}
+
+/* セクション全体のスタイル */
+#event-introduction {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    /* 背景を黒 */
+    color: #fff;
+}
+
+/* 見出しスタイル */
+#event-introduction h2 {
+    font-size: clamp(1.2em, 3vw, 1.8em);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.event-container-wrapper {
+    max-width: 100%;
+}
+
+/* スライダーコンテナ */
+.event-slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* スライダーのラッパー */
+.event-slider-wrapper {
+    display: flex;
+    gap: 20px;
+    will-change: transform;
+    transition: transform 0.3s ease;
+}
+
+/* イベントカード */
+.event-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    /* 高さを自動 */
+    position: relative;
+}
+
+/* イベントタイトル */
+.event-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+    margin: 10px 0;
+    text-align: left;
+}
+
+/* 横並び用のコンテナ */
+.event-content {
+    display: flex;
+    align-items: flex-start;
+    /* 縦方向の位置を揃える */
+    gap: 15px;
+    /* 画像とテキストの間隔を設定 */
+    margin: 10px 0;
+}
+
+/* イベント説明 */
+.event-description {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* イベント画像 */
+.event-image-container {
+    flex: 0 0 140px;
+    /* 画像の幅を固定 */
+    height: 110px;
+    /* 画像の高さを固定 */
+    overflow: hidden;
+}
+
+.overlay-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* イベント詳細 */
+.event-details {
+    flex: 1;
+    /* 残りのスペースを占有 */
+    font-size: 0.9em;
+    color: #666;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* 予約ボタン */
+.reservation-button-container {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.reservation-button-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.reservation-button-image:hover {
+    transform: scale(1.1);
+}
+
+/* 左右ボタン */
+.event-slider-button-prev,
+.event-slider-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.event-slider-button-prev {
+    left: 10px;
+}
+
+.event-slider-button-next {
+    right: 10px;
+}
+
+.event-slider-button-prev:hover,
+.event-slider-button-next:hover {
+    background-color: #444;
+}
+
+/* モバイル表示用のメディアクエリ */
+@media (max-width: 980px) {
+    .event-slider-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        /* ラップしないように設定 */
+        transition: transform 0.3s ease;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .event-card {
+        max-width: 300px;
+        /* PC版と同様の最大幅に設定 */
+        width: 100%;
+        /* 幅を100%に */
+        margin: 0 auto;
+        /* 中央揃え */
+        text-align: center;
+    }
+
+    .event-content {
+        display: flex;
+        flex-direction: row;
+        /* 横並び */
+        align-items: flex-start;
+        /* 上揃え */
+        gap: 10px;
+    }
+
+    .event-image-container {
+        flex: 0 0 100px;
+        /* 画像の幅を調整 */
+        height: 100px;
+        /* 高さを固定 */
+    }
+
+    .overlay-image {
+        width: 100%;
+        /* 画像をコンテナ内で拡大 */
+        height: 100%;
+        /* 高さを完全に埋める */
+        object-fit: cover;
+        /* 画像が収まるよう調整 */
+    }
+
+    .event-details {
+        flex: 1;
+        /* テキストが残りのスペースを使用 */
+        text-align: left;
+        line-height: 1.5;
+        /* 行間を広げて読みやすく */
+    }
+
+    .reservation-button-container {
+        margin-top: 15px;
+    }
+}
+
+/* セクション全体のスタイル */
+#event-examples {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: clamp(20px, 5vw, 60%) 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* コンテナのスタイル（横並びでカードを表示） */
+.example-container {
+    display: flex;
+    justify-content: center;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0 120px;
+    box-sizing: border-box;
+}
+
+/* 各アイテムのスタイル（横長に収まるように調整） */
+.example-item {
+    flex: 1 1 calc(33.333% - 40px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: clamp(10px, 2vw, 20px);
+    padding: clamp(10px, 2vw, 20px);
+    flex-basis: 30%;
+    flex-grow: 1;
+    min-width: 300px;
+    max-width: 380px;
+    width: clamp(250px, 30%, 380px);
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+/* 画像のスタイル */
+.example-item img.example-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 各カードの間に縦線を追加 */
+.example-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #fff;
+}
+
+/* テキスト部分のスタイル */
+.example-text {
+    max-width: 90%;
+}
+
+/* タイトルのスタイル */
+.example-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: left;
+}
+
+/* テキストのスタイル */
+.example-item p {
+    font-size: 1.2em;
+    line-height: 1.3em;
+    color: #fff;
+    text-align: left;
+}
+
+/* モバイル表示用のメディアクエリ */
+@media (max-width: 980px) {
+    .example-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .example-item {
+        width: 90%;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+
+    .example-item h3,
+    .example-item p {
+        text-align: center;
+    }
+}
+
+/* セクションのスタイル */
+#inquiry-link {
+    text-align: center;
+    margin-top: clamp(10px, 2vw, 0px);
+    margin-bottom: clamp(50px, 15vw, 150px);
+    padding-top: 10px;
+}
+
+/* リンクボタンのスタイル */
+.inquiry-button {
+    display: inline-block;
+    padding: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 20px);
+    background-color: #fff;
+    color: #000;
+    font-size: clamp(1em, 2.5vw, 1.2em);
+    font-weight: bold;
+    text-decoration: none;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 矢印のスタイル */
+.inquiry-button .arrow {
+    margin-left: 10px;
+    font-size: clamp(1em, 3vw, 1.5em);
+}
+
+/* ホバー時のスタイル */
+.inquiry-button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* えんじ色の帯セクションのスタイル */
+#red-banner {
+    background-color: rgba(135, 0, 0, 1.0);
+    color: #fff;
+    padding: clamp(20px, 4vw, 40px) 0;
+    text-align: center;
+    font-size: clamp(1.2em, 3.6vw, 1.6em);
+    font-weight: bold;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
+    z-index: 5;
+    position: relative;
+}
+
+#red-banner p {
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* スマホ表示で地図を縦に並べる */
+@media (max-width: 900px) {
+    #red-banner p {
+        font-size: 0.8em;
+
+    }
+}
+
+/* モーダル全体のスタイル */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* スマホ版モーダルを完全非表示 */
+@media (max-width: 768px) {
+    .modal {
+        display: none !important;
+    }
+}
+
+/* 半透明の背景テキストのスタイル */
+#overlay-section {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* SHAMAISON STATION の薄いテキストのスタイル */
+.shamaison-bg-text {
+    font-size: clamp(3.0em, 6.0vw, 5.5em);
+    color: rgba(170, 170, 170, 0.2);
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    position: absolute;
+    top: 75%;
+    transform: translateY(-35%);
+}
+
+/* スマホ（さらに小さい画面）用 */
+@media screen and (max-width: 480px) {
+    .shamaison-bg-text {
+        font-size: clamp(2.0em, 4.0vw, 3.0em);
+        letter-spacing: -0.05em;
+        /* 文字間隔を狭くする */
+    }
+}
+
+/* 白い背景のスタイル */
+#white-background {
+    background-color: #fff;
+    padding: 100px 0 50px 0;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: -20px;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
+    position: relative;
+    top: -10px;
+    z-index: 3;
+}
+
+/* 地図画像を配置するコンテナのスタイル */
+.map-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.map-item {
+    width: 40%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    .map-item {
+        width: 70%;
+        /* 幅を大きくする */
+    }
+}
+
+/* 超小型スマホ用のスタイル調整 */
+@media screen and (max-width: 480px) {
+    .map-item {
+        width: 70%;
+        /* 幅をフルスクリーンに */
+    }
+}
+
+/* スマホ表示で地図を縦に並べる */
+@media (max-width: 768px) {
+    .map-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* お問い合わせと資料請求リンクのスタイル */
+#contact-request-links {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+.link-container {
+    display: flex;
+    gap: 10vw;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
+.link-button {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0;
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* スマホ用のスタイル調整 */
+@media screen and (max-width: 768px) {
+    .link-button {
+        padding: 2px 0;
+        /* 上下の余白をさらに小さく */
+        font-size: 0.8rem;
+        /* フォントサイズを小さく */
+        box-shadow: 0 0.5px 1.5px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+        /* シャドウを弱める */
+    }
+}
+
+/* 超小型スマホ用のスタイル調整 */
+@media screen and (max-width: 480px) {
+    .link-button {
+        padding: 1px 0;
+        /* さらに小さく */
+        font-size: 0.7rem;
+        /* フォントサイズをもっと小さく */
+    }
+}
+
+.link-button span {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.link-button:hover {
+    background-color: #333;
+}
+
+/* モバイル表示用のメディアクエリ */
+@media (max-width: 768px) {
+    .link-container {
+        flex-direction: column;
+        gap: 20px;
+        width: 60%;
+    }
+}
+
+/* パンくずリストセクションのスタイル */
+#breadcrumb-section {
+    background-color: #fff;
+    padding: clamp(10px, 10vw, 20px);
+    font-size: clamp(0.45em, 1vw, 1.0em);
+    color: #333;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
+    z-index: 2;
+    position: relative;
+    text-align: left;
+    padding-left: clamp(10px, 5vw, 20px);
+}
+
+/* パンくずリストのフォントスタイル */
+#breadcrumb-section .breadcrumb {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(0.8em, 1vw, 1em);
+}
+
+/* 横線（hr）のスタイル */
+.breadcrumb-divider {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* パンくずリストのスタイル */
+.breadcrumb {
+    font-size: 1.5em;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 15px;
+    text-align: left;
+}
+
+.breadcrumb a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.breadcrumb a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+/* フッターのスタイル */
+#footer {
+    background-color: #333;
+    padding: clamp(2.5px, 0.5vw, 5px) 0;
+    text-align: center;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* フッターのロゴ画像のスタイル */
+.footer-logo {
+    max-width: clamp(30px, 8vw, 70px);
+    /* サイズを小さく設定 */
+    height: auto;
+    margin: 40px 0;
+    /* 上下に余白 */
+}
+
+/* フッターのロゴ画像のスタイル・スマホ用のスタイル調整 */
+@media screen and (max-width: 768px) {
+    .footer-logo {
+        margin: 20px 0;
+        /* 上下の余白を小さく */
+    }
+}
+
+/* フッターのロゴ画像のスタイル・超小型スマホ用のスタイル調整 */
+@media screen and (max-width: 480px) {
+    .footer-logo {
+        margin: 20px 0;
+        /* さらに余白を縮小 */
+    }
+}
+
+/* フッター下部のスタイル */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    font-size: clamp(0.6em, 2vw, 1em);
+    text-align: center;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-links,
+.footer-copyright {
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-copyright {
+    text-align: right;
+}
+
+/* モバイル表示用のメディアクエリ */
+@media (max-width: 980px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-copyright {
+        margin: 5px 0;
+    }
+}
+
+/* ここから法人のお客様(corporate.html)の装飾 */
+/* 小さいテキストのスタイル（英語部分） */
+.corporate-subtext {
+    font-size: clamp(1em, 1.5vw, 5em);
+    letter-spacing: 0.1em;
+    word-spacing: 0.2em;
+    white-space: nowrap;
+    margin-top: 0px;
+}
+
+/* スマホ用のスタイル調整 */
+@media screen and (max-width: 768px) {
+    .rcorporate-subtext {
+        font-size: 0.8em;
+        /* 文字を小さくする */
+        letter-spacing: 0.08em;
+        /* 文字間を調整 */
+        word-spacing: 0.15em;
+        /* 単語間を調整 */
+    }
+}
+
+/* 超小型スマホ用のスタイル調整 */
+@media screen and (max-width: 480px) {
+    .corporate-subtext {
+        font-size: 0.6em;
+        /* さらに文字を小さく */
+        letter-spacing: 0.05em;
+        /* 文字間をさらに狭く */
+        word-spacing: 0.1em;
+        /* 単語間をさらに狭く */
+    }
+}
+
+/* メインのセクション */
+#corporate-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 4vw, 40px);
+    /* 余白を調整 */
+    background-color: #000;
+    max-width: 2200px;
+    /* 最大幅 */
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* 左側のテキスト */
+.corporate-text {
+    flex: 6;
+    /* テキスト幅の調整 */
+    padding-right: clamp(10px, 2vw, 20px);
+    /* 右側の余白 */
+    color: #fff;
+    line-height: 1.6;
+    /* 行間をやや広げる */
+    max-width: 900px;
+    /* 最大幅 */
+    margin: clamp(10px, 1vw, 10px) 0 0 10px;
+    /* 上下の余白 */
+    white-space: normal;
+}
+
+/* タイトルのフォントサイズ */
+.corporate-text h1 {
+    font-size: clamp(2.5rem, 3.0vw, 2.9rem);
+    /* 動的に調整 (40px ~ 72px) */
+    margin-bottom: clamp(15px, 3vw, 30px);
+    /* 下余白 */
+}
+
+/* 説明文のフォントサイズ */
+.corporate-text p {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    /* 動的に調整 (20px ~ 32px) */
+    word-spacing: 0.1em;
+    letter-spacing: 0.05em;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 2;
+    /* 行間をやや広げる */
+}
+
+/* 右側の画像 */
+.corporate-image {
+    flex: 7;
+    /* 画像の幅調整 */
+    max-width: 100%;
+    margin: 10px auto;
+    /* 上下のマージン */
+    display: flex;
+    justify-content: center;
+}
+
+.corporate-image img {
+    width: 120%;
+    /* 幅を調整 */
+    max-width: none;
+    object-fit: cover;
+    margin-top: clamp(-150px, -10vw, -100px);
+    /* ヘッダーから突き出た状態を維持 */
+    border-radius: 8px;
+    /* 必要に応じて角を丸める */
+}
+
+/* メディアクエリ: 画面幅が1700px以下のとき */
+@media (max-width: 1800px) {
+    .corporate-text h1 {
+        font-size: clamp(1.6rem, 2.2vw, 2.6rem);
+        /* タイトルのサイズ調整 */
+    }
+
+    .corporate-text p {
+        font-size: clamp(1.1rem, 1.2vw, 1.4rem);
+        /* 説明文のサイズ調整 */
+        line-height: 2;
+        /* 行間をやや広げる */
+    }
+}
+
+/* メディアクエリ: 画面幅が1200px以下のとき */
+@media (max-width: 1200px) {
+    #corporate-info {
+        padding: clamp(15px, 3vw, 30px);
+        /* 余白の調整 */
+    }
+
+    .corporate-text {
+        flex: 5;
+        /* 横並びを維持 */
+        margin: clamp(10px, 3vw, 20px) 10px;
+        /* 左寄せを維持 */
+    }
+
+    .corporate-image {
+        flex: 7;
+        /* 横並びを維持 */
+        margin: 10px auto;
+    }
+
+    .corporate-image img {
+        width: 120%;
+        /* 横幅の調整 */
+        margin-top: -150px;
+        /* 常にヘッダーから突き出る設定 */
+    }
+}
+
+/* メディアクエリ: 画面幅が980px以下のとき */
+@media (max-width: 980px) {
+    #corporate-info {
+        padding: clamp(15px, 3vw, 30px);
+        /* 余白の調整 */
+    }
+
+    .corporate-text {
+        flex: 5;
+        /* 横並びを維持 */
+        margin: clamp(10px, 3vw, 20px) 10px;
+        /* 左寄せを維持 */
+    }
+
+    .corporate-image {
+        flex: 7;
+        /* 横並びを維持 */
+        margin: 10px auto;
+    }
+
+    .corporate-image img {
+        width: 120%;
+        /* 横幅の調整 */
+        margin-top: -150px;
+        /* 常にヘッダーから突き出る設定 */
+    }
+}
+
+/* メディアクエリ: 画面幅が860px以下のとき */
+@media (max-width: 860px) {
+    #corporate-info {
+        padding: clamp(10px, 2.5vw, 20px);
+        /* 余白を調整 */
+    }
+
+    .corporate-text {
+        flex: 5;
+        /* 横並びを維持 */
+        margin: clamp(8px, 2.5vw, 15px) 10px;
+        /* 左寄せを維持 */
+    }
+
+    .corporate-text h1 {
+        font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+        /* タイトルを少し小さく調整 */
+    }
+
+    .corporate-text p {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        /* 説明文を少し小さく調整 */
+        line-height: 1.5;
+        /* 行間を調整 */
+    }
+
+    .corporate-image {
+        flex: 7;
+        /* 横並びを維持 */
+        margin: 10px auto;
+    }
+
+    .corporate-image img {
+        width: 110%;
+        /* 画像の幅を少し縮小 */
+        margin-top: -140px;
+        /* ヘッダーから突き出る設定を維持 */
+        object-fit: cover;
+        /* 画像の調整を維持 */
+    }
+}
+
+/* メディアクエリ: 画面幅が768px以下のとき */
+@media (max-width: 768px) {
+    #corporate-info {
+        flex-direction: column;
+        /* 縦方向にレイアウト変更 */
+        padding: clamp(10px, 2vw, 20px);
+        /* 全体の余白を調整 */
+    }
+
+    .corporate-text {
+        flex: none;
+        /* 横幅制限解除 */
+        margin: clamp(10px, 2vw, 20px) auto;
+        /* テキスト全体の上下余白を設定 */
+        text-align: center;
+        /* テキストを中央揃え */
+    }
+
+    .corporate-text h1 {
+        font-size: clamp(1.1rem, 1.8vw, 2.5rem);
+        /* タイトルを小さく調整 */
+        margin-bottom: clamp(20px, 3vw, 30px);
+        /* 画像との間の一定余白 */
+    }
+
+    .corporate-text p {
+        font-size: clamp(0.8rem, 1.8vw, 1.4rem);
+        /* 説明文を調整 */
+        line-height: 1.5;
+        /* 行間を調整 */
+        margin-bottom: clamp(20px, 3vw, 30px);
+        /* 画像との間の一定余白 */
+    }
+
+    .corporate-image {
+        flex: none;
+        /* 横幅制限解除 */
+        margin: clamp(30px, 4vw, 40px) auto;
+        /* 一定の上下余白を設定 */
+        display: flex;
+        justify-content: center;
+        /* 画像を中央に配置 */
+    }
+
+    .corporate-image img {
+        width: 90%;
+        /* 画像を縮小 */
+        max-width: 400px;
+        /* 最大幅を設定 */
+        margin-top: -40px;
+        /* ヘッダーからの突き出しを調整 */
+        object-fit: contain;
+        /* 画像が切り取られないように調整 */
+    }
+}
+
+/* セクション全体のスタイル */
+#grid-section {
+    max-width: 2000px;
+    /* 最大幅を拡大 */
+    margin: 0 auto;
+    padding: 40px clamp(30px, 6vw, 60px);
+    /* 余白を拡大 */
+}
+
+/* 上段、下段のグリッド行 */
+.grid-row {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* 画像とタイトルのコンテナ */
+.image-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* ギャップを調整 */
+    padding-bottom: 15px;
+}
+
+/* グリッドアイテムのスタイル */
+.grid-item {
+    flex: 1 1 33%;
+    /* 各アイテムの幅を調整 */
+    text-align: center;
+    padding: 0 15px 15px 0;
+    /* 余白を調整 */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* 画像とタイトル、説明文を含むコンテナ */
+.content-container {
+    flex: 1;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+    height: clamp(150px, 40vh, 320px);
+}
+
+/* 最後の要素の縦線を非表示 */
+.grid-item:last-child .content-container {
+    border-right: none;
+}
+
+/* 空のコンテナを非表示 */
+.content-container:empty {
+    display: none;
+}
+
+/* タイトルスタイル */
+.grid-title {
+    font-size: 1.5em;
+    /* フォントサイズを拡大 */
+    color: #000;
+    margin: 0;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+/* 説明文と注釈を含むコンテナ */
+.description-container {
+    width: 100%;
+    text-align: left;
+    margin-right: 150px;
+    /* 余白を調整 */
+    margin-left: 150px;
+}
+
+/* 説明文スタイル */
+.grid-description {
+    font-size: 1.2em;
+    /* フォントサイズを拡大 */
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* 最下部の注釈 */
+.grid-note {
+    font-size: 1em;
+    /* フォントサイズ */
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    color: #000;
+}
+
+/* PC版の画像をデフォルトで表示 */
+.grid-image-pc {
+    display: block;
+    width: 35%;
+    /* PC版画像の幅を拡大 */
+    max-width: 400px;
+    /* 最大幅を調整 */
+    height: auto;
+    padding-top: 10px;
+}
+
+.grid-image-mobile {
+    display: none;
+    /* モバイル版の画像はデフォルトで非表示 */
+}
+
+/* スマホ版のスタイル */
+@media (max-width: 1400px) {
+    .grid-title {
+        font-size: 1.2em;
+    }
+
+    .grid-description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .grid-note {
+        font-size: 0.8em;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .grid-title {
+        font-size: 1.1em;
+    }
+
+    .grid-description {
+        font-size: 0.9em;
+        margin-bottom: 60px;
+    }
+
+    .grid-note {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 1100px) {
+    .grid-title {
+        font-size: 1.0em;
+    }
+
+    .grid-description {
+        font-size: 0.8em;
+        margin-bottom: 75px;
+    }
+
+    .grid-note {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 950px) {
+    .grid-title {
+        font-size: 0.98em;
+    }
+
+    .grid-description {
+        font-size: 0.7em;
+        margin-bottom: 75px;
+    }
+
+    .grid-note {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* セクション全体の余白調整 */
+    #grid-section {
+        padding: 20px clamp(10px, 3vw, 30px);
+    }
+
+    /* グリッドアイテムの縦並び調整 */
+    .grid-row {
+        flex-direction: column;
+        /* 縦並びに変更 */
+        border: none;
+    }
+
+    /* グリッドアイテムのデザイン調整 */
+    .grid-item {
+        flex: 1 1 100%;
+        /* 横幅100% */
+        margin-bottom: 20px;
+        /* アイテム間の余白を調整 */
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+        box-sizing: border-box;
+        /* ボックスサイズ調整 */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* 内容の上下間隔を調整 */
+        overflow: visible;
+        /* 内部要素の完全表示を許可 */
+    }
+
+    /* グリッドアイテム内のコンテナ */
+    .grid-item .content-container {
+        background-color: #000;
+        /* 背景色を黒に設定 */
+        color: #fff;
+        /* テキストを白に設定 */
+        padding: 0px;
+        /* 内側余白を調整 */
+        border: none;
+        /* ボーダーをリセット */
+        box-sizing: border-box;
+        /* 内側の余白を考慮 */
+        overflow: hidden;
+        /* はみ出し防止 */
+    }
+
+    /* 特定のアイテムに下線を適用 */
+    .grid-item:nth-child(-n+4) .content-container {
+        border-bottom: 1px solid #fff;
+    }
+
+    /* bottom-row の特定のアイテムに下線を削除 */
+    .grid-row.bottom-row .grid-item:nth-child(2) .content-container,
+    .grid-row.bottom-row .grid-item:nth-child(3) .content-container {
+        border-bottom: none !important;
+    }
+
+    /* タイトルのスタイル調整 */
+    .grid-title {
+        color: #fff;
+        font-size: 1.4em;
+        /* フォントサイズを調整 */
+        margin-bottom: 10px;
+        /* 下余白を統一 */
+        white-space: normal;
+        /* テキストが折り返されるよう設定 */
+        word-wrap: break-word;
+        /* 長い単語を折り返し */
+    }
+
+    /* 説明文のスタイル調整 */
+    .grid-description {
+        color: #fff;
+        font-size: 0.8em;
+        /* フォントサイズを調整 */
+        line-height: 1.5;
+        /* 行間を設定 */
+        text-align: left;
+        /* 左寄せに設定 */
+        white-space: normal;
+        /* テキストが折り返されるよう設定 */
+        word-wrap: break-word;
+        /* 長い単語を折り返し */
+        overflow-wrap: break-word;
+        /* はみ出し防止 */
+        margin-bottom: 8px;
+        /* 注釈との間の余白を調整 */
+    }
+
+    /* description-container の固定幅設定 */
+    .description-container {
+        width: 100%;
+        /* 幅を全幅に設定 */
+        max-width: 600px;
+        /* 最大幅を600pxに固定 */
+        margin: 0 auto;
+        /* 左右中央寄せ */
+        padding: 0 0px;
+        /* 内側余白を調整 */
+        text-align: left;
+        /* 左寄せに設定 */
+        box-sizing: border-box;
+        /* ボックスサイズ調整 */
+    }
+
+    /* 注釈のスタイル調整 */
+    .grid-note {
+        font-size: 0.8em;
+        /* 注釈のフォントサイズを調整 */
+        color: #fff;
+        /* テキスト色 */
+        text-align: left;
+        /* 左寄せに設定 */
+        margin-top: 5px;
+        /* 上余白を調整 */
+        margin-bottom: 15px;
+        /* ボックス下部との余白を確保 */
+        white-space: normal;
+        /* 折り返し設定 */
+        word-wrap: break-word;
+        /* 長い単語を折り返し */
+        overflow-wrap: break-word;
+        /* はみ出し防止 */
+    }
+
+    /* モバイル版画像のスタイル調整 */
+    .grid-image-pc {
+        display: none;
+        /* PC版の画像を非表示 */
+    }
+
+    .grid-image-mobile {
+        display: block;
+        /* モバイル版画像を表示 */
+        width: 35%;
+        /* 幅を調整 */
+        max-width: 200px;
+        /* 最大幅を少し縮小 */
+        height: auto;
+        margin-bottom: 15px;
+        /* 画像下に余白を追加 */
+    }
+}
+
+#link-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 80px;
+}
+
+.white-link-button {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 40px;
+    /* 内側余白を少し広げる */
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    transition: all 0.3s;
+    border-radius: 4px;
+    min-width: 400px;
+    max-width: 400px;
+    /* 最大幅を追加 */
+}
+
+.white-link-button span {
+    font-weight: bold;
+    margin-left: auto;
+}
+
+/* スマホ表示で縦並びにする */
+@media (max-width: 768px) {
+    #link-buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        margin-top: 0;
+
+    }
+
+    .white-link-button {
+        padding: 6px 20px;
+        /* 内側余白を小さく調整 */
+        font-size: 0.9em;
+        /* フォントサイズを縮小 */
+        min-width: 250px;
+        /* 最小幅を縮小 */
+        max-width: 250px;
+        /* 最大幅も縮小 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .white-link-button {
+        padding: 5px 15px;
+        /* 内側余白をさらに小さく */
+        font-size: 0.8em;
+        /* フォントサイズをさらに縮小 */
+        min-width: 250px;
+        /* 最小幅を縮小 */
+        max-width: 250px;
+        /* 最大幅を縮小 */
+    }
+}
+
+.video-section-wrapper {
+    padding: 0 80px;
+    /* 左右に80pxの余白を追加 */
+    box-sizing: border-box;
+    /* パディングを含めてサイズを計算 */
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+    .video-section-wrapper {
+        padding: 0 20px;
+        /* スマホ時の左右の余白 */
+    }
+}
+
+/* 動画セクションのスタイル */
+#video-case-studies {
+    position: relative;
+    margin: 200px auto 80px auto;
+    /* 上下の余白を調整（上200px、下50pxに変更 ） */
+    max-width: 1200px;
+    /* 最大幅を設定 */
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    /* セクション全体を囲む白い枠線 */
+    background-color: #000;
+    position: relative;
+}
+
+/* セクションタイトルのスタイル */
+#video-case-studies h2 {
+    position: absolute;
+    top: -55px;
+    /* 白線の上に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    /* 背景をセクション背景と一致させて白線を隠す */
+    padding: 0 10px;
+    font-size: 2.2em;
+    color: #fff;
+    z-index: 2;
+    /* 白線より上に表示されるように */
+}
+
+/* スマホ用スタイル */
+@media (max-width: 768px) {
+    #video-case-studies h2 {
+        top: -50px;
+        /* 中央寄せのため位置を調整 */
+        transform: translate(-50%, 0);
+        /* 中央揃えの補正 */
+        font-size: 1.5em;
+        /* スマホ時の文字サイズ */
+        text-align: center;
+        /* 文字を中央揃え */
+        padding: 5px 10px;
+        /* スマホ用の内側余白 */
+    }
+}
+
+@media (max-width: 480px) {
+    #video-case-studies h2 {
+        top: -40px;
+        /* 少し下に移動して余白を確保 */
+        font-size: 1.2em;
+        /* さらに小さな文字サイズ */
+        padding: 3px 8px;
+        /* 内側余白をさらに小さく */
+        line-height: 1.3;
+        /* 行間を調整 */
+    }
+}
+
+/* 動画のコンテナを囲むスタイル */
+.video-container {
+    display: flex;
+    justify-content: center;
+    /* 動画を中央に配置 */
+    margin-top: 40px;
+    position: relative;
+}
+
+/* 動画のラッパースタイル（アスペクト比の保持） */
+.video-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    /* 動画の最大幅 */
+    padding-bottom: 56.25%;
+    /* 16:9 アスペクト比 */
+    position: relative;
+    height: 0;
+}
+
+/* 動画自体のスタイル */
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* タブレット用スタイル (768px以下) */
+@media (max-width: 768px) {
+    .video-wrapper {
+        max-width: 100%;
+        /* タブレットでは幅を画面いっぱいに拡大 */
+    }
+
+    .video-container {
+        margin-top: 20px;
+        /* 上の余白を小さく調整 */
+    }
+}
+
+/* スマホ用スタイル (480px以下) */
+@media (max-width: 480px) {
+    .video-wrapper {
+        max-width: 100%;
+        /* スマホでは幅を画面いっぱいに */
+        padding-bottom: 56.25%;
+        /* アスペクト比を維持 */
+    }
+
+    .video-container {
+        margin-top: 5px;
+        /* 上の余白をさらに小さく */
+    }
+
+    .video-wrapper video {
+        border-radius: 0;
+        /* 必要に応じて角丸をリセット */
+    }
+}
+
+/* コンテナ全体を中央に配置 */
+.text-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    /* 上下に余白を追加 */
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    /* 白線で囲む */
+    max-width: 60%;
+    /* コンテナの最大幅を指定 */
+    text-align: center;
+    background-color: #000;
+    /* 背景を黒に設定 */
+    box-sizing: border-box;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+    .text-box {
+        max-width: 300px;
+        /* PCと同じ最大幅を維持 */
+        margin: 10px auto;
+        /* スマホ用の上下余白を調整 */
+        padding: 5px 20px;
+        /* 内側余白もPCと同じ */
+    }
+}
+
+/* テキストスタイル */
+.text-box p {
+    font-size: 1.2em;
+    color: #fff;
+    /* 文字を白にする */
+    margin: 0;
+    padding: 0;
+}
+
+/* リンクの下線を消す */
+a {
+    text-decoration: none;
+}
+
+/* セクション全体のスタイル */
+#land-use-section {
+    text-align: center;
+    padding: 120px 30px 100px 30px;
+    /* 上下に余白を追加 */
+    background-color: #000;
+    /* 背景色を黒に */
+    font-size: 1.5em;
+}
+
+/* メインタイトルのスタイル */
+.main-title {
+    font-size: 4.5em;
+    /* 大きなフォントサイズ */
+    font-weight: bold;
+    color: rgba(62, 58, 57, 1);
+    /* 半透明の白 */
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+/* スマホ向けにフォントサイズを調整 */
+@media screen and (max-width: 768px) {
+    .main-title {
+        font-size: 3em;
+        /* フォントサイズを小さく調整 */
+        white-space: normal;
+        /* 必要に応じて改行を許可 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-title {
+        font-size: 2.5em;
+        /* スマホ画面ではさらに小さく */
+        white-space: normal;
+        /* 必要に応じて改行を許可 */
+    }
+}
+
+/* サブタイトルのスタイル */
+.subtitle {
+    font-size: 1.0em;
+    color: #fff;
+    /* 白色 */
+    letter-spacing: 0.1em;
+    margin-top: 5px;
+}
+
+/* 全体レイアウトのスタイル */
+#split-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin-bottom: 150px;
+}
+
+/* スマホ向けに下の余白を小さくする */
+@media screen and (max-width: 768px) {
+    #split-layout {
+        margin-bottom: 50px;
+        /* スマホ用に余白を小さく */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #split-layout {
+        margin-bottom: 30px;
+        /* さらに小さい画面では余白をさらに縮小 */
+    }
+}
+
+/* 各アイテムのスタイル */
+.split-item {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+}
+
+/* 画像セクションのスタイル */
+.image-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 1200px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+}
+
+/* テキストセクションのスタイル */
+.text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 奇数番目のテキストセクションは右寄せ */
+.split-item:nth-child(odd) .text-section {
+    text-align: right;
+    transform: translateX(-12%);
+}
+
+/* 偶数番目のテキストセクションは左寄せ */
+.split-item:nth-child(even) .text-section {
+    text-align: left;
+    transform: translateX(12%);
+}
+
+/* タイトルのスタイル */
+.text-section h3 {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 0;
+    white-space: normal;
+}
+
+/* 説明文のスタイル */
+.text-section p {
+    font-size: 1.2em;
+    line-height: 2.0;
+    margin: 20px 0;
+}
+
+/* CTAボタン共通スタイル */
+.cta-button-right,
+.cta-button-left {
+    display: inline-block;
+    padding: 5px 20px;
+    /* 縦横のパディングを小さくしてボタン全体を小さく */
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 1.1em;
+    /* フォントサイズを小さく */
+    font-weight: bold;
+    width: fit-content;
+    white-space: nowrap;
+    line-height: 1.2;
+    /* 行間を狭く */
+    text-align: center;
+    /* テキストを中央揃え */
+    border-radius: 0;
+    /* 角を丸くしない */
+    margin-top: 40px;
+    /* ボタンを下にずらす */
+}
+
+/* 左寄せボタン */
+.cta-button-left {
+    margin-right: auto;
+}
+
+/* 右寄せボタン */
+.cta-button-right {
+    margin-left: auto;
+}
+
+/* ボタンの hover 時のスタイル */
+.cta-button-left:hover,
+.cta-button-right:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* 偶数番目の要素を左右反転させる */
+.split-item:nth-child(even) .text-section {
+    order: 2;
+}
+
+.split-item:nth-child(even) .image-section {
+    order: 1;
+}
+
+/* スマホ画面の設定 */
+@media (max-width: 768px) {
+    .split-item {
+        margin: 20px 0;
+    }
+
+    .image-section {
+        margin: 0 auto;
+        padding: 0;
+        width: 80%;
+    }
+
+    /* テキストセクションの調整 */
+    .text-section {
+        text-align: left;
+        width: 90%;
+        margin: 0 auto;
+        white-space: normal;
+    }
+
+    /* 奇数番目（左側）の「詳しく見る」ボタンは左寄せ */
+    .split-item:nth-child(odd) .cta-button-right {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    /* 偶数番目（右側）の「詳しく見る」ボタンは右寄せ */
+    .split-item:nth-child(even) .cta-button-left {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    /* 奇数番目のテキストセクションは右寄せ */
+    .split-item:nth-child(odd) .text-section {
+        text-align: right;
+        transform: translateX(-5%);
+    }
+
+    /* 偶数番目のテキストセクションは左寄せ */
+    .split-item:nth-child(even) .text-section {
+        text-align: left;
+        transform: translateX(5%);
+    }
+
+    /* 文字サイズのレスポンシブ対応 */
+    .text-section h3 {
+        font-size: 1.2em;
+        white-space: normal;
+    }
+
+    .text-section p {
+        font-size: 0.8em;
+    }
+}
+
+/* 詳しく見るボタンを小さく表示 */
+@media screen and (max-width: 480px) {
+
+    .cta-button-right,
+    .cta-button-left {
+        padding: 2px 10px;
+        /* 最小限のパディングにする */
+        font-size: 0.6em;
+        /* フォントサイズをもっと小さく */
+        margin-top: 0px;
+        /* 余白をさらに狭める */
+    }
+}
+
+@media (max-width: 480px) {
+    .text-section h3 {
+        font-size: 0.9em;
+        white-space: normal;
+    }
+
+    .text-section p {
+        font-size: 0.9em;
+    }
+}
+
+/* ここから個人のお客様(customer.html)の装飾 */
+/* 小さいテキストのスタイル（英語部分） */
+.customer-subtext {
+    font-size: clamp(1em, 1.5vw, 5em);
+    letter-spacing: 0.1em;
+    word-spacing: 0.2em;
+    white-space: nowrap;
+    margin-top: 0px;
+}
+
+/* スマホ用のスタイル調整 */
+@media screen and (max-width: 768px) {
+    .customer-subtext {
+        font-size: 0.8em;
+        /* 文字を小さくする */
+        letter-spacing: 0.08em;
+        /* 文字間を調整 */
+        word-spacing: 0.15em;
+        /* 単語間を調整 */
+    }
+}
+
+/* 超小型スマホ用のスタイル調整 */
+@media screen and (max-width: 480px) {
+    .customer-subtext {
+        font-size: 0.6em;
+        /* さらに文字を小さく */
+        letter-spacing: 0.05em;
+        /* 文字間をさらに狭く */
+        word-spacing: 0.1em;
+        /* 単語間をさらに狭く */
+    }
+}
+
+/* セクション全体のスタイル */
+#personal-corporate-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* テキストと画像を均等に配置 */
+    flex-wrap: wrap;
+    gap: clamp(20px, 1vw, 40px);
+    /* テキストと画像の余白を一定に保つ */
+    padding: clamp(20px, 5vw, 40px);
+    background-color: #000;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* テキスト部分のスタイル */
+.personal-corporate-text {
+    flex: 7.5;
+    /* 比率を4に設定 */
+    max-width: 50%;
+    /* 最大幅を40%に設定 */
+    margin: 0;
+    text-align: left;
+}
+
+.personal-corporate-text h1 {
+    font-size: clamp(1.2em, 2.0vw, 2.0em);
+    margin-bottom: clamp(20px, 2vw, 30px);
+    line-height: 1.6;
+}
+
+.personal-corporate-text p {
+    font-size: clamp(0.9em, 1.3vw, 1.3em);
+    line-height: 1.4;
+    margin: clamp(10px, 1vw, 20px) 0;
+}
+
+/* 注釈部分 */
+.top-note-below {
+    font-size: 0.8em !important;
+    line-height: 1.4 !important;
+    color: #ffffff !important;
+    margin-top: 15px !important;
+    text-align: left !important;
+}
+
+/* 画像部分のスタイル */
+.personal-corporate-image {
+    flex: 6;
+    /* 比率を6に設定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: clamp(400px, 50vw, 900px);
+    /* サイズを調整 */
+    max-width: 100%;
+    height: auto;
+    top: max(-40vh, -70px);
+    z-index: 1;
+    margin-left: 100px;
+    /* 右に20px移動 */
+    transform: scale(1.4);
+    /* 1.5倍に拡大 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1400px) {
+    .personal-corporate-image {
+        flex: 6;
+        /* 比率を維持 */
+        top: max(-50vh, -80px);
+        width: clamp(350px, 40vw, 700px);
+        margin-left: 110px;
+        /* 右に20px移動 */
+        transform: scale(1.3);
+        /* 1.5倍に拡大 */
+    }
+}
+
+@media (max-width: 1400px) {
+    .personal-corporate-image {
+        flex: 6;
+        /* 比率を維持 */
+        top: max(-50vh, -80px);
+        width: clamp(350px, 40vw, 700px);
+        margin-left: 110px;
+        /* 右に20px移動 */
+        transform: scale(1.3);
+        /* 1.5倍に拡大 */
+    }
+}
+
+@media (max-width: 1250px) {
+    .personal-corporate-image {
+        flex: 6;
+        /* 比率を維持 */
+        top: max(-50vh, -80px);
+        width: clamp(350px, 40vw, 700px);
+        margin-left: 80px;
+        /* 右に20px移動 */
+        transform: scale(1.25);
+        /* 1.5倍に拡大 */
+    }
+}
+
+@media (max-width: 980px) {
+    #personal-corporate-info {
+        gap: 30px;
+        /* 画面幅に応じて余白を調整 */
+    }
+
+    .personal-corporate-text {
+        flex: 4;
+        /* テキストと画像の比率を維持 */
+        max-width: 40%;
+    }
+
+    .personal-corporate-image {
+        flex: 6;
+        /* 比率を維持 */
+        top: max(-40vh, -150px);
+        width: clamp(350px, 50vw, 700px);
+    }
+}
+
+@media (max-width: 768px) {
+    #personal-corporate-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        /* 縦並びの場合の余白を調整 */
+        padding-top: 20px;
+    }
+
+    .personal-corporate-text {
+        flex: none;
+        /* 比率を解除 */
+        max-width: 100%;
+        /* 横幅いっぱいに広げる */
+        text-align: center;
+        margin-left: 0;
+        margin-top: 10px;
+        padding: 0 15px;
+    }
+
+    .personal-corporate-image {
+        flex: none;
+        /* 比率を解除 */
+        position: relative;
+        /* 被りを防ぐために調整 */
+        top: 0;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: clamp(300px, 60vw, 600px);
+    }
+}
+
+/* セクション全体のスタイル */
+#center-section {
+    padding: clamp(10px, 5vw, 40px);
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* 見出しのスタイル */
+#center-section h2 {
+    font-size: clamp(1.2em, 2.9vw, 3em);
+    margin-bottom: clamp(20px, 5vw, 40px);
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Pタグの説明テキストのスタイル */
+p.description {
+    font-size: clamp(0.7em, 2.0vw, 1.5em);
+    line-height: 2.0;
+    margin: clamp(10px, 2vw, 20px) 0;
+    text-align: center;
+}
+
+.content-box-a .description {
+    text-align: left;
+    /* 強制的に左揃え */
+}
+
+/* Pタグの説明テキストのスタイル */
+.customer_description {
+    font-size: clamp(0.7em, 1.5vw, 1.2em);
+    text-align: center;
+    /* 左揃え */
+    margin: 0;
+    /* 必要に応じて余白をリセット */
+    padding: 0;
+    /* 必要に応じて内側の余白をリセット */
+    line-height: 1.9;
+    /* 読みやすい行間を設定 */
+}
+
+
+/* 画像コンテナを囲む白い枠線 */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    gap: 0;
+    margin: 0 auto;
+    padding: clamp(20px, 0.5vw, 40px);
+    box-sizing: border-box;
+
+}
+
+/* 各 content-box のスタイル */
+.content-box-a {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(10px, 1vw, 15px);
+    box-sizing: border-box;
+}
+
+.content-box-b {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(10px, 1vw, 15px);
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    .content-box-b>*:last-child {
+        /* 右側の子要素をターゲット */
+        flex: 0.8;
+        /* サイズを小さく */
+        max-width: 80%;
+        /* 幅を縮小 */
+
+    }
+}
+
+/* 各画像ボックスのスタイル */
+.image-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(5px, 0.5vw, 10px) clamp(10px, 1vw, 15px);
+    /* 上下と左右を分けて指定 */
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+/* 画像の右寄せのスタイル */
+.right-align {
+    margin-left: auto;
+    display: block;
+    width: 60%;
+    height: auto;
+    padding-right: clamp(10px, 2vw, 30px);
+}
+
+/* 左側の画像ボックスの右に縦線を接続 */
+.image-box:first-child {
+    border-left: 2px solid #fff;
+    margin-left: 0;
+    padding-left: clamp(5px, 1vw, 10px);
+}
+
+/* 画像のスタイル */
+.image-box img {
+    width: clamp(30%, 40%, 45%);
+    height: auto;
+    margin-top: clamp(3px, 1vw, 5px);
+}
+
+/* テキストボックスのスタイル */
+.center-text-box {
+    font-size: 11px;
+    margin-right: clamp(10px, 1.5vw, 15px);
+}
+
+/* h3 タグのスタイル調整 */
+.text-title {
+    font-size: clamp(1em, 2.3vw, 1.5em);
+    margin-bottom: 10px;
+    text-align: center;
+    margin-right: auto;
+    padding-left: clamp(10px, 2vw, 20px);
+}
+
+/* 数字部分のスタイル */
+.large-text {
+    font-size: clamp(1.5em, 3vw, 2.0em);
+    text-align: center;
+    padding-left: clamp(10px, 2vw, 20px);
+}
+
+/* 特定部分を強調するスタイル */
+.highlight {
+    font-size: clamp(1.2em, 2.5vw, 1.5em);
+    font-weight: bold;
+}
+
+/* 画像のスタイル */
+.content-box img {
+    width: 40%;
+    height: auto;
+    margin-left: clamp(10px, 2vw, 20px);
+}
+
+/* 注釈のスタイルを枠外に配置 */
+.note-outside {
+    font-size: 12px;
+    text-align: center;
+    margin-top: clamp(10px, 2.7vw, 24px);
+    color: #fff;
+    border: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .image-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        border-left: none;
+        border-top: 2px solid #fff;
+    }
+
+    .image-box:first-child {
+        border-top: none;
+    }
+
+    .right-align {
+        padding-right: 0;
+        width: 80%;
+    }
+
+    .center-text-box,
+    .text-title,
+    .large-text {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+/* お問い合わせと資料請求リンクのスタイル */
+#new-contact-request-links {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: #000;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    #new-contact-request-links {
+        padding: 20px 0;
+        /* スマホ時は上下50px、左右0 */
+    }
+}
+
+.new-link-container {
+    display: flex;
+    gap: 10vw;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
+.new-link-button {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    .new-link-button {
+        padding: 0px 0;
+        /* 上下の余白を少し小さく */
+    }
+}
+
+.new-link-button span {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.new-link-button:hover {
+    background-color: #ddd;
+}
+
+/* モバイル表示用のメディアクエリ */
+@media (max-width: 768px) {
+    .new-link-container {
+        flex-direction: column;
+        gap: 20px;
+        width: 60%;
+    }
+}
+
+/* セクション全体のスタイル */
+#statistics-section {
+    padding: clamp(20px, 5vw, 40px);
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* h2 タイトルのスタイル */
+#statistics-section h2 {
+    font-size: clamp(1.5em, 2vw, 3em);
+    margin-bottom: clamp(20px, 4vw, 30px);
+    line-height: 1.3;
+}
+
+/* 統計画像を中央に配置 */
+.statistics-image {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    /* 画像の最大幅 */
+    height: auto;
+    margin: 30px auto;
+    /* 上下の余白と中央配置 */
+    padding-top: 30px;
+}
+
+/* セクション全体のスタイル */
+#rental-system-section {
+    padding: 60px 0px 20px 0px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* タイトルと説明文のスタイル */
+.rental-system-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    .rental-system-content h2 {
+        font-size: 1.3em;
+        /* スマホ時は小さく */
+    }
+}
+
+.description {
+    font-size: 1em;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    #center-section .description {
+        text-align: center;
+        /* スマホ時のみセンター揃え */
+    }
+}
+
+/* 画像コンテナのスタイル */
+.rental-system-image-container {
+    text-align: center;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    .rental-system-image-container {
+        margin: 0px 20px 0px 20px;
+        /* スマホ時の外側余白 */
+        padding: 10px;
+        /* スマホ時の内側余白 */
+    }
+}
+
+.statistics-image {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    /* 画像の最大幅を設定 */
+    height: auto;
+    margin: 30px auto;
+    /* 上下の余白 */
+}
+
+/* 注釈のスタイル */
+.note-below {
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 768px以下の画面幅を対象 */
+    .note-below {
+        font-size: 10px;
+        /* スマホ時に文字サイズを小さく変更 */
+    }
+}
+
+/* 新しいセクションのスタイル */
+#user-shop-support {
+    padding: clamp(20px, 5vw, 80px);
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* 見出しのスタイル */
+.user-shop-heading {
+    font-size: clamp(1.5em, 3vw, 2em);
+    /* フォントサイズをレスポンシブに調整 */
+    margin-bottom: clamp(10px, 2vw, 20px);
+    line-height: 1.8;
+}
+
+/* 説明文のスタイル */
+.user-shop-description {
+    font-size: clamp(1em, 1.5vw, 1.2em);
+    line-height: 1.8;
+    margin-bottom: clamp(15px, 3vw, 30px);
+    color: #fff;
+}
+
+/* 注釈のスタイル */
+.user-shop-note {
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    color: #fff;
+}
+
+/* 画像コンテナのスタイル */
+.user-shop-image-container {
+    display: flex;
+    justify-content: center;
+    /* 画像を中央揃え */
+    margin-top: clamp(15px, 3vw, 30px);
+}
+
+/* 画像のスタイル */
+.user-shop-image {
+    max-width: 100%;
+    height: auto;
+    width: clamp(300px, 80%, 900px);
+    border-radius: 5px;
+    /* 角を少し丸くする */
+}
+
+/* 画像のスタイル */
+.user-shop-content {
+    padding-top: 30px;
+}
+
+/* レスポンシブ対応: モバイル時の調整 */
+@media (max-width: 768px) {
+    .user-shop-content {
+        padding: 0 10px;
+    }
+
+    .user-shop-description {
+        font-size: 0.8em;
+    }
+
+    .user-shop-heading {
+        font-size: 1.3em;
+    }
+}
+
+/* ここから土地購入をお考えの方(land_buy.html)の装飾 */
+/* 全体のラッパー */
+.land_buy-wrapper {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+
+/* イントロセクション */
+.intro-section {
+    text-align: center;
+    padding: 10px 10%;
+    margin-top: 50px;
+}
+
+/* 見出しのスタイル */
+.intro-heading {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #bb9a75;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    border-top: 1px solid #bb9a75;
+    border-bottom: 1px solid #bb9a75;
+    display: inline-block;
+    padding: 25px 0;
+    max-width: 1800px;
+}
+
+/* 説明文のスタイル */
+.intro-text {
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 2.5;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 1024px) {
+    .intro-section {
+        padding: 40px 5%;
+    }
+
+    .intro-heading {
+        font-size: 2.0rem;
+        padding: 20px 0;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .intro-section {
+        padding: 30px 5%;
+    }
+
+    .intro-heading {
+        font-size: 1.5rem;
+        padding: 15px 0;
+    }
+
+    .intro-text {
+        font-size: 1.0rem;
+        line-height: 1.6;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro-section {
+        padding: 20px 5%;
+    }
+
+    .intro-heading {
+        font-size: 1.0rem;
+        padding: 10px 0;
+    }
+
+    .intro-text {
+        font-size: 0.8rem;
+        line-height: 1.8;
+    }
+}
+
+/* 全体のラッパー */
+.income-recommendation {
+    text-align: center;
+    margin: 50px auto;
+    padding: 30px 20px;
+}
+
+/* セクションタイトル */
+.recommendation-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* 白い枠のセクション */
+.recommendation-box {
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+/* サブタイトル */
+.recommendation-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+/* PC用画像 */
+.recommendation-image-pc {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* SP用画像 */
+.recommendation-image-mobile {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* SPサイズで画像を切り替え */
+@media screen and (max-width: 768px) {
+    .recommendation-image-pc {
+        display: none;
+    }
+
+    .recommendation-image-mobile {
+        display: block;
+    }
+}
+
+/* フッターテキスト */
+.footer-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    border-top: 2px solid #fff;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+/* ここから設計士ページの装飾 */
+/* 全体セクションのスタイル */
+#designer-profile {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.designer-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 中央揃え */
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 100px;
+}
+
+/* 設計者プロフィール全体のコンテナ */
+.designer-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 写真とテキストを横並びにするためのコンテナ */
+.designer-info-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 600px;
+    /* 必要に応じて適切な幅に調整 */
+}
+
+/* 設計者の写真コンテナ */
+.designer-photo-container {
+    flex: 0 0 auto;
+}
+
+.designer-photo {
+    width: 150px;
+    height: auto;
+}
+
+/* テキスト全体を縦に並べるためのコンテナ */
+.designer-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ARCHITECT'S COLLECTION タイトルと番号 */
+.designer-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.designer-collection-title {
+    font-weight: normal;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.designer-number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    height: auto;
+}
+
+/* 名前とローマ字表記 */
+.design-name-container {
+    margin-bottom: 10px;
+}
+
+.designer-subtitle {
+    font-size: 0.9rem;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+.design-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.designer-furigana {
+    font-size: 1.0rem;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+/* 自己紹介文のスタイル */
+.designer-description-container {
+    max-width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+.designer-description {
+    font-size: 1.0rem;
+    line-height: 1.6;
+}
+
+/* 設計士画像部分のスタイル */
+/* 基本レイアウト */
+.design-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* メイン画像のコンテナ */
+.design-main-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 450px;
+    margin: 0 auto;
+}
+
+/* スライドコンテナ */
+.slide-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 500%;
+}
+
+/* 各スライド */
+.slide {
+    flex: 0 0 20%;
+    box-sizing: border-box;
+}
+
+/* ラジオボタンは非表示に */
+input[type="radio"] {
+    display: none;
+}
+
+/* 左右ボタンのスタイル */
+.design-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+/* 左右ボタンの配置 */
+.design-prev {
+    left: 2vw;
+}
+
+.design-next {
+    right: 2vw;
+}
+
+.design-carousel-button:hover {
+    color: #ccc;
+}
+
+/* メイン画像のスタイル */
+.design-main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* メディアクエリ（レスポンシブ対応） */
+@media (max-width: 980px) {
+
+    /* メイン画像のサイズ調整 */
+    .design-main-image-wrapper {
+        width: 95%;
+    }
+
+    /* ボタンのサイズと位置調整 */
+    .design-carousel-button {
+        font-size: 3rem;
+    }
+
+    .design-prev {
+        left: 2vw;
+    }
+
+    .design-next {
+        right: 2vw;
+    }
+}
+
+/* セクション間の白線 */
+.separator {
+    width: 80%;
+    border-bottom: 1px solid #ffffff;
+    margin: 80px auto 0 auto;
+    /* 上の余白を150pxに増やし、下の余白を0に設定 */
+}
+
+/* ここから実例ページの装飾 */
+/* イベントヘッダーの装飾 */
+.event-header-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    z-index: 5;
+    /* 他の要素と競合しないように調整 */
+}
+
+/* イベントヘッダーの画像 */
+.event-header-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.event-header-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* 背景色を追加するためのセクション全体のスタイル */
+.white-background {
+    width: 100vw;
+    background-color: white;
+    padding: 40px 40px 0 40px;
+    margin-top: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    text-align: center;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* 画面幅が768px以下の場合 */
+    .white-background {
+        padding: 20px 20px 0 20px;
+        /* 上下余白を小さくする */
+    }
+}
+
+/* 全体のスタイル */
+.property-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* コンテナの最大幅を固定 */
+.property-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ヘッダー情報コンテナ */
+.property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+/* 左側のリラフォート部分 */
+.property-location {
+    font-size: 1.8em;
+    color: #333;
+    text-align: left;
+    line-height: 1.4;
+    letter-spacing: 0.10em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    flex: 0.8;
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .property-location {
+        font-size: 1.5em;
+        line-height: 1.6;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+/* 右側の物件情報 */
+.property-info {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.0em;
+    color: #333;
+    justify-content: flex-start;
+    text-align: left;
+    line-height: 1.6;
+    gap: 10px;
+    flex: 2;
+}
+
+/* 各項目のデフォルトスタイル */
+.property-info .info-line {
+    white-space: nowrap;
+    /* 横並びを強制 */
+}
+
+/* 768px以下のレスポンシブ対応 */
+@media (max-width: 768px) {
+    .property-header {
+        flex-direction: column;
+        /* 縦並び */
+        align-items: flex-start;
+        /* 左揃え */
+        gap: 10px;
+    }
+
+    .property-info {
+        justify-content: flex-start;
+        /* 左揃え */
+        gap: 10px;
+        /* 縦並び時のスペース */
+        font-size: 0.8em;
+        /* スマホ時に文字サイズを小さく */
+        line-height: 1.2;
+        /* 行間も調整 */
+    }
+}
+
+/* property-content-wrapper を右揃えに設定 */
+.property-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* 縦方向に配置 */
+    align-items: flex-end;
+    /* コンテンツを右揃え */
+    width: 100%;
+}
+
+/* 説明部分 */
+.property-description {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.8;
+    max-width: 1200px;
+    margin-left: 0;
+    /* 左寄せ */
+    text-align: left;
+    /* 左揃え */
+    margin-left: 20px;
+    /* 左側に20pxの余白を追加 */
+    padding-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .property-description h1 {
+        font-size: 1.3em;
+    }
+}
+
+/* テキストのスタイル */
+.property-description h1,
+.property-text p {
+    text-align: left;
+    /* 左揃え */
+    margin: 0 auto;
+    /* 中央に余白を追加 */
+    max-width: 800px;
+    /* 最大幅を設定 */
+    line-height: 1.8;
+    /* 行間を調整 */
+}
+
+/* property-images-container を修正 */
+.property-images-container {
+    display: flex;
+    flex-direction: column;
+    /* 縦並びにする */
+    align-items: flex-start;
+    /* 右揃え */
+    width: 85%;
+    /* 横幅を調整 */
+}
+
+/* 追加テキストのスタイル */
+.property-additional-text {
+    text-align: left;
+    /* 左揃え */
+    margin: 20px;
+    padding-top: 30px;
+    max-width: 1200px;
+    /* 最大幅を設定 */
+    line-height: 1.8;
+    /* 行間を調整 */
+    font-size: 1.1em;
+    /* フォントサイズを調整 */
+    color: #666;
+    /* テキストの色を設定 */
+}
+
+/* スマホ対応のスタイル */
+@media (max-width: 768px) {
+    .property-additional-text {
+        text-align: left;
+        /* 左揃え */
+        margin: 0 auto;
+        /* 中央に余白を追加 */
+        max-width: 800px;
+        /* 最大幅を設定 */
+        line-height: 1.8;
+    }
+}
+
+/* 画像群 */
+.property-images {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.image-with-text img {
+    width: 90%;
+    height: auto;
+}
+
+/* テキスト部分 */
+.property-text {
+    margin: 120px auto 180px auto;
+    /* 上下に50pxのマージンを設定し、左右を自動に */
+    font-size: 1.1em;
+    max-width: 1200px;
+    color: #666;
+    line-height: 1.8;
+    text-align: left;
+    /* テキストを左揃え */
+}
+
+/* 左揃えを一致させる <p> */
+.property-text .image-center p {
+    text-align: left;
+    /* 左揃え */
+    margin-left: 35%;
+    /* <h1> と同じ左余白 */
+    line-height: 1.8;
+    /* 読みやすい行間 */
+    max-width: 1200px;
+    /* 必要に応じて幅制限を設定 */
+}
+
+@media (max-width: 768px) {
+
+    /* スマホ画面幅を対象 */
+    .property-text .image-center p {
+        margin-left: 0;
+        /* 左余白をリセット */
+        padding-left: 10px;
+        /* 内側に少し余白を追加（必要に応じて調整） */
+        max-width: 100%;
+        /* テキストを画面幅に広げる */
+    }
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* スマホ画面幅を対象 */
+    .property-text {
+        margin-top: 40px;
+        /* 上の余白を小さく */
+        margin-bottom: 40px;
+        /* 下の余白を小さく */
+    }
+}
+
+/* テキストと画像を中央寄せ */
+.image-center {
+    margin: 20px 0 20px 20px;
+    padding-left: 0;
+    /* 余分なパディングがあればリセット */
+    max-width: 1200px;
+}
+
+.image-center img {
+    width: 98%;
+    height: auto;
+    max-width: 1200px;
+    /* 通常時の最大幅を500pxに */
+}
+
+
+/* 768px以下のレスポンシブ対応 */
+@media (max-width: 768px) {
+    .property-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        /* 縦並びに変更 */
+        align-items: center;
+        /* 中央揃え */
+        margin: 0 auto;
+        /* 左右のマージンを自動調整 */
+        max-width: 800px;
+        /* 必要に応じて最大幅を設定 */
+        /* 左右に少し余白を設定 */
+        width: 100%;
+        /* 画面幅に対して適切な幅を設定 */
+        box-sizing: border-box;
+        /* パディング込みで幅調整 */
+    }
+
+    .property-images-container {
+        align-items: center;
+        /* 画像の中央揃え */
+        text-align: center;
+        max-width: 100%;
+        /* 幅を画面いっぱいに */
+        margin-right: 0;
+        /* 右余白をなくす */
+        padding: 0;
+        /* 必要に応じて内側の余白をリセット */
+    }
+
+    .property-description {
+        margin-top: 30px;
+        /* 768px以下のときの余白を少し広めに設定 */
+        text-align: center;
+        /* 中央揃え */
+        max-width: 100%;
+        font-size: 0.9em;
+    }
+
+    .property-description h1 {
+        text-align: left;
+        /* 見出しの中央揃え */
+        max-width: 100%;
+        /* 見出しが画面幅に合わせて配置 */
+    }
+
+    .property-images {
+        flex-direction: column;
+        /* 画像を縦並びに */
+        gap: 20px;
+        /* 縦並びのときの間隔 */
+        align-items: center;
+        /* 画像の中央揃え */
+    }
+
+    .image-center img {
+        max-width: 100%;
+        padding: 30;
+        /* 余白をリセットして中央に寄せる */
+    }
+
+    .image-center p {
+        text-align: left;
+    }
+}
+
+/* 全体のスタイル */
+.architect-section {
+    padding: 40px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* 最初の画像（枠外に配置） */
+.header-image {
+    margin-bottom: 40px;
+}
+
+.header-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 白い枠で囲まれた部分 */
+.architect-container {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #fff;
+    /* 白枠 */
+    padding: 30px;
+    align-items: flex-start;
+    /* 各ボックスの高さを上で揃える */
+}
+
+/* 設計士の全体ボックス */
+.architect-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ボックス内の要素を中央に揃える */
+    text-align: left;
+    width: 70%;
+    /* 横に2つ並べる */
+    margin: 0 auto;
+    /* 左右の中央寄せ */
+    padding: 10px;
+}
+
+/* 設計士の上部情報と画像を横並びにする */
+.architect-info-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    /* 要素を中央に寄せる */
+    align-items: center;
+    /* 縦方向の中央揃え */
+    gap: 10px;
+    /* 一言と画像の間隔を小さくする */
+    margin-bottom: 20px;
+}
+
+/* 設計士の上部情報 */
+.architect-info {
+    flex: 1;
+    text-align: left;
+    padding-right: 40px;
+}
+
+.architect-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.architect-info p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* アイコン部分 */
+.icon-section {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.icon-section span {
+    font-size: 24px;
+}
+
+/* 設計士の画像 */
+.architect-image img {
+    width: 50%;
+    /* 元の幅を保持 */
+    height: 50%;
+    /* 元の高さを保持 */
+    max-width: 100%;
+    /* コンテナの幅に応じてリサイズ */
+    margin-bottom: 20px;
+}
+
+/* コメント部分 */
+.architect-comment {
+    max-width: 350px;
+    /* コメント部分の最大横幅を指定 */
+    width: 100%;
+    /* 横幅を親要素に対して100%に */
+    text-align: left;
+    /* テキストを左寄せ */
+    margin-top: 10px;
+    padding-right: 80px;
+}
+
+.architect-comment p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* メディアクエリでモバイル対応 */
+@media (max-width: 768px) {
+    .architect-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .architect-box {
+        width: 100%;
+    }
+
+    .architect-info-wrapper {
+        flex-direction: column;
+        /* モバイルで縦並びに戻す */
+        align-items: flex-start;
+    }
+
+    .architect-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* セクション全体 */
+#designer-section {
+    padding: 40px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+/* セクションタイトル */
+.designer-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.designer-title h2 {
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+}
+
+/* スマホ用のスタイル */
+@media (max-width: 768px) {
+
+    /* スマホ画面幅を対象 */
+    .designer-title h2 {
+        font-size: 16px;
+        /* スマホ時にフォントサイズを小さく */
+    }
+}
+
+.line-left,
+.line-right {
+    width: 20%;
+    height: 1px;
+    background-color: #fff;
+}
+
+/* デザイナーリスト */
+.designer-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+    margin: 30px 60px;
+    /* 上下10px、左右5pxの余白 */
+}
+
+/* デザイナーボックス */
+.designer-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* デザイナー詳細部分（名前とボタン） */
+.designer-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* デザイナー名とボタンの配置 */
+.designer-name {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.designer-box img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.view-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* スマホ用スタイル (480px以下) */
+@media (max-width: 480px) {
+    .view-more-btn {
+        display: block;
+        /* 幅を広げるためブロック表示 */
+        padding: 10px 5px;
+        /* 横に広い内側余白 */
+        width: 100%;
+        /* 幅を画面幅に合わせる */
+        text-align: center;
+        /* テキストを中央揃え */
+    }
+}
+
+/* メディアクエリ */
+@media (max-width: 768px) {
+    .designer-list {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -20px;
+        /* 上に10px移動 */
+        gap: 50px;
+    }
+
+    /* スマホ用スタイル */
+    @media (max-width: 768px) {
+        .designer-block {
+            padding: 20px;
+            /* 内側に余白を追加 */
+        }
+    }
+
+
+    .designer-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .designer-details {
+        align-items: center;
+    }
+
+    .line-left,
+    .line-right {
+        width: 10%;
+    }
+}
+
+.small-symbol {
+    font-size: 0.5em;
+    vertical-align: super;
+    position: relative;
+    left: -2px;
+}
