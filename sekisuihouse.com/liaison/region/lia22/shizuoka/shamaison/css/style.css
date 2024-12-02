@@ -2111,276 +2111,6 @@ a {
     text-decoration: none;
 }
 
-/* セクション全体のスタイル */
-#land-use-section {
-    text-align: center;
-    padding: 120px 30px 100px 30px;
-    /* 上下に余白を追加 */
-    background-color: #000;
-    /* 背景色を黒に */
-    font-size: 1.5em;
-}
-
-/* メインタイトルのスタイル */
-.main-title {
-    font-size: 4.5em;
-    /* 大きなフォントサイズ */
-    font-weight: bold;
-    color: rgba(62, 58, 57, 1);
-    /* 半透明の白 */
-    letter-spacing: 0.1em;
-    margin: 0;
-}
-
-/* スマホ向けにフォントサイズを調整 */
-@media screen and (max-width: 768px) {
-    .main-title {
-        font-size: 3em;
-        /* フォントサイズを小さく調整 */
-        white-space: normal;
-        /* 必要に応じて改行を許可 */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .main-title {
-        font-size: 2.5em;
-        /* スマホ画面ではさらに小さく */
-        white-space: normal;
-        /* 必要に応じて改行を許可 */
-    }
-}
-
-/* サブタイトルのスタイル */
-.subtitle {
-    font-size: 1.0em;
-    color: #fff;
-    /* 白色 */
-    letter-spacing: 0.1em;
-    margin-top: 5px;
-}
-
-/* 全体レイアウトのスタイル */
-#split-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin-bottom: 150px;
-}
-
-/* スマホ向けに下の余白を小さくする */
-@media screen and (max-width: 768px) {
-    #split-layout {
-        margin-bottom: 50px;
-        /* スマホ用に余白を小さく */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #split-layout {
-        margin-bottom: 30px;
-        /* さらに小さい画面では余白をさらに縮小 */
-    }
-}
-
-/* 各アイテムのスタイル */
-.split-item {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    flex: 1 1 auto;
-}
-
-/* 画像セクションのスタイル */
-.image-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-section img {
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    max-height: 1200px;
-    object-fit: cover;
-    display: block;
-    margin: 0;
-}
-
-/* テキストセクションのスタイル */
-.text-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* 奇数番目のテキストセクションは右寄せ */
-.split-item:nth-child(odd) .text-section {
-    text-align: right;
-    transform: translateX(-12%);
-}
-
-/* 偶数番目のテキストセクションは左寄せ */
-.split-item:nth-child(even) .text-section {
-    text-align: left;
-    transform: translateX(12%);
-}
-
-/* タイトルのスタイル */
-.text-section h3 {
-    font-size: 1.7em;
-    margin-bottom: 10px;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    padding: 0;
-    white-space: normal;
-}
-
-/* 説明文のスタイル */
-.text-section p {
-    font-size: 1.2em;
-    line-height: 2.0;
-    margin: 20px 0;
-}
-
-/* CTAボタン共通スタイル */
-.cta-button-right,
-.cta-button-left {
-    display: inline-block;
-    padding: 5px 20px;
-    /* 縦横のパディングを小さくしてボタン全体を小さく */
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    font-size: 1.1em;
-    /* フォントサイズを小さく */
-    font-weight: bold;
-    width: fit-content;
-    white-space: nowrap;
-    line-height: 1.2;
-    /* 行間を狭く */
-    text-align: center;
-    /* テキストを中央揃え */
-    border-radius: 0;
-    /* 角を丸くしない */
-    margin-top: 40px;
-    /* ボタンを下にずらす */
-}
-
-/* 左寄せボタン */
-.cta-button-left {
-    margin-right: auto;
-}
-
-/* 右寄せボタン */
-.cta-button-right {
-    margin-left: auto;
-}
-
-/* ボタンの hover 時のスタイル */
-.cta-button-left:hover,
-.cta-button-right:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* 偶数番目の要素を左右反転させる */
-.split-item:nth-child(even) .text-section {
-    order: 2;
-}
-
-.split-item:nth-child(even) .image-section {
-    order: 1;
-}
-
-/* スマホ画面の設定 */
-@media (max-width: 768px) {
-    .split-item {
-        margin: 20px 0;
-    }
-
-    .image-section {
-        margin: 0 auto;
-        padding: 0;
-        width: 80%;
-    }
-
-    /* テキストセクションの調整 */
-    .text-section {
-        text-align: left;
-        width: 90%;
-        margin: 0 auto;
-        white-space: normal;
-    }
-
-    /* 奇数番目（左側）の「詳しく見る」ボタンは左寄せ */
-    .split-item:nth-child(odd) .cta-button-right {
-        margin-left: auto;
-        margin-right: 0;
-    }
-
-    /* 偶数番目（右側）の「詳しく見る」ボタンは右寄せ */
-    .split-item:nth-child(even) .cta-button-left {
-        margin-right: auto;
-        margin-left: 0;
-    }
-
-    /* 奇数番目のテキストセクションは右寄せ */
-    .split-item:nth-child(odd) .text-section {
-        text-align: right;
-        transform: translateX(-5%);
-    }
-
-    /* 偶数番目のテキストセクションは左寄せ */
-    .split-item:nth-child(even) .text-section {
-        text-align: left;
-        transform: translateX(5%);
-    }
-
-    /* 文字サイズのレスポンシブ対応 */
-    .text-section h3 {
-        font-size: 1.2em;
-        white-space: normal;
-    }
-
-    .text-section p {
-        font-size: 0.8em;
-    }
-}
-
-/* 詳しく見るボタンを小さく表示 */
-@media screen and (max-width: 480px) {
-
-    .cta-button-right,
-    .cta-button-left {
-        padding: 2px 10px;
-        /* 最小限のパディングにする */
-        font-size: 0.6em;
-        /* フォントサイズをもっと小さく */
-        margin-top: 0px;
-        /* 余白をさらに狭める */
-    }
-}
-
-@media (max-width: 480px) {
-    .text-section h3 {
-        font-size: 0.9em;
-        white-space: normal;
-    }
-
-    .text-section p {
-        font-size: 0.9em;
-    }
-}
-
 /* ここから個人のお客様(customer.html)の装飾 */
 /* 小さいテキストのスタイル（英語部分） */
 .customer-subtext {
@@ -3115,14 +2845,14 @@ p.description {
 /* 全体のラッパー */
 .income-recommendation {
     text-align: center;
-    margin: 50px auto;
+    margin: 10px auto;
     padding: 30px 20px;
 }
 
 /* セクションタイトル */
 .recommendation-title {
     font-size: 2rem;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: #fff;
 }
 
@@ -3130,23 +2860,22 @@ p.description {
 .recommendation-box {
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
 }
 
 /* サブタイトル */
 .recommendation-subtitle {
     font-size: 1.5rem;
-    font-weight: bold;
     margin-bottom: 30px;
-    color: #000;
+    color: #ffffff;
+    border: 2px solid #fff; /* 白線で囲む */
 }
 
 /* PC用画像 */
 .recommendation-image-pc {
     display: block;
     width: 100%;
-    max-width: 800px;
+    max-width: 1800px;
     height: auto;
     margin: 0 auto;
 }
@@ -3171,14 +2900,591 @@ p.description {
     }
 }
 
-/* フッターテキスト */
-.footer-text {
+/* テキストが白線に被るスタイル */
+.footer-line-text {
+    font-size: 2.0rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 5px 20px;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.footer-line-text::before,
+.footer-line-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: calc(50% - 270px);
+    background-color: #fff;
+}
+
+.footer-line-text::before {
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.footer-line-text::after {
+    right: 100%;
+    transform: translateX(100%);
+}
+
+/* メディアクエリでレスポンシブ対応 */
+@media screen and (max-width: 1200px) {
+    .recommendation-title {
+        font-size: 1.7rem;
+    }
+    .recommendation-subtitle {
+        font-size: 1.3rem;
+    }
+    .recommendation-box {
+        padding: 30px 15px;
+    }
+    .footer-line-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .recommendation-title {
+        font-size: 1.5rem;
+    }
+    .recommendation-subtitle {
+        font-size: 1.3rem;
+    }
+    .recommendation-box {
+        padding: 20px 10px;
+    }
+    .footer-line-text {
+        font-size: 1.4rem;
+        max-width: 100%;
+    }
+    .footer-line-text::before,
+    .footer-line-text::after {
+        width: calc(50% - 200px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .recommendation-title {
+        font-size: 1.1rem;
+    }
+    .recommendation-subtitle {
+        font-size: 1rem;
+    }
+    .recommendation-box {
+        padding: 15px 5px;
+    }
+    .footer-line-text {
+        font-size: 1.0rem;
+    }
+    .footer-line-text::before,
+    .footer-line-text::after {
+        width: calc(50% - 140px);
+    }
+}
+
+/* 全体のセクション */
+.real-estate-flow {
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px 30px;
+}
+
+/* セクションタイトル */
+.flow-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* 説明テキスト */
+.flow-description {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* 画像セクション */
+.flow-steps {
+    max-width: 1800px; /* 画像の最大幅を設定 */
+    margin: 0 auto;
+}
+
+/* PC用画像 */
+.flow-image-pc {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* SP用画像 */
+.flow-image-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+/* SPサイズで画像を切り替え */
+@media screen and (max-width: 768px) {
+    .flow-image-pc {
+        display: none;
+    }
+
+    .flow-image-mobile {
+        display: block;
+    }
+}
+
+/* 注意書き */
+.flow-note {
+    font-size: 1.0rem;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 1200px) {
+    .flow-title {
+        font-size: 1.8rem;
+    }
+    .flow-description {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+    .flow-note {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flow-title {
+        font-size: 1.5rem;
+    }
+    .flow-description {
+        font-size: 1.0rem;
+        margin-bottom: 20px;
+    }
+    .flow-note {
+        font-size: 0.8rem;
+    }
+    .flow-image-pc {
+        display: none;
+    }
+    .flow-image-mobile {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .flow-title {
+        font-size: 1.2rem;
+    }
+    .flow-description {
+        font-size: 0.7rem;
+        margin-bottom: 15px;
+    }
+    .flow-note {
+        font-size: 0.45rem;
+    }
+    .real-estate-flow {
+        padding: 20px 15px;
+    }
+}
+
+/* 全体のセクション */
+.sales-map {
+    text-align: center;
+    margin: 50px auto;
+    padding: 30px 20px;
+    max-width: 1800px;
+}
+
+/* セクションタイトル */
+.map-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/* 説明テキスト */
+.map-description {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 地図とナンバリング画像 */
+.map-image-container {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.map-image-pc {
+    display: block;
+    width: 100%;
+    max-width: 1800px;
+    height: auto;
+    margin: 100px auto;
+}
+
+.map-image-mobile {
+    display: none;
+    width: 100%;
+    max-width: 768px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .map-image-pc {
+        display: none;
+    }
+
+    .map-image-mobile {
+        display: block;
+    }
+
+    .map-title {
+        font-size: 1.5rem;
+    }
+
+    .map-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* 空のコンテナ（白線用） */
+.map-empty-container {
+    width: 100%;
+    max-width: 1800px;
+    height: 2px;
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 1200px) {
+    .map-title {
+        font-size: 2.0rem;
+        letter-spacing: 0.08em;
+        word-spacing: 0.15em;
+    }
+
+    .map-description {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .map-title {
+        font-size: 1.9rem;
+        letter-spacing: 0.07em;
+        word-spacing: 0.1em;
+    }
+
+    .map-description {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .map-title {
+        font-size: 1.3rem;
+        letter-spacing: 0.05em;
+        word-spacing: 0.05em;
+    }
+
+    .map-description {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+}
+
+/* セクション全体のスタイル */
+#land-use-section {
+    text-align: center;
+    padding: 20px 30px 20px 30px;
+    font-size: 1.5em;
+}
+
+/* メインタイトルのスタイル */
+.main-title {
+    font-size: 4.5em;
+    font-weight: bold;
+    color: #bb9a75;
+    letter-spacing: 0.1em;
+    margin: 0;
+    position: relative;
+    line-height: 0.44;
+}
+
+/* 下線スタイル */
+.main-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #bb9a75;
+}
+
+/* メディアクエリ - タブレット向け */
+@media screen and (max-width: 768px) {
+    .main-title {
+        font-size: 3.0em;
+        line-height: 0.5;
+    }
+
+    .main-title::after {
+        height: 1.5px;
+        bottom: -8px;
+    }
+}
+
+/* メディアクエリ - スマホ向け */
+@media screen and (max-width: 480px) {
+    .main-title {
+        font-size: 1.7em;
+        line-height: 0.55;
+    }
+
+    .main-title::after {
+        height: 1px;
+        bottom: -6px;
+    }
+}
+
+/* サブタイトルのスタイル */
+.subtitle {
+    font-size: 1.5em;
+    color: #fff;
+    /* 白色 */
+    letter-spacing: 0.1em;
+    margin-top: 70px;
+}
+
+@media screen and (max-width: 768px) {
+    .subtitle {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .subtitle {
+        font-size: 0.7em;
+    }
+}
+
+/* 物件レイアウトのスタイル */
+#split-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding: 0 20px;
+    margin-bottom: 150px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+/* 各アイテムのスタイル */
+.split-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* 画像セクション */
+.image-section {
+    flex: 1;
+    max-width: 70%;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* テキストセクション */
+.text-section {
+    flex: 1;
+    max-width: 40%;
+    color: #fff;
+    text-align: left;
+    line-height: 1.6;
+    margin-right: 10px;
+}
+
+/* 奇数アイテムのスタイル（右寄せ：画像が右、テキストが左） */
+.split-item:nth-child(odd) .image-section {
+    order: 2;
+}
+
+.split-item:nth-child(odd) .text-section {
+    order: 1;
+    text-align: right;
+}
+
+/* 偶数アイテムのスタイル（左寄せ：画像が左、テキストが右） */
+.split-item:nth-child(even) .image-section {
+    order: 1;
+}
+
+.split-item:nth-child(even) .text-section {
+    order: 2;
+    text-align: left;
+}
+
+/* テキスト内の要素 */
+.text-section p {
+    font-size: 1.8em;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+/* CTAボタン */
+.cta-button {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* 1200px以下のレスポンシブ対応 */
+@media screen and (max-width: 1200px) {
+    .split-item {
+        gap: 30px;
+    }
+
+    .image-section {
+        max-width: 60%;
+    }
+
+    .text-section {
+        max-width: 35%;
+    }
+
+    .text-section p {
+        font-size: 1.3em;
+    }
+
+    .cta-button {
+        font-size: 1.2rem;
+        padding: 8px 15px;
+    }
+}
+
+/* レスポンシブ対応（スマホサイズでもPCと同じ配置を維持） */
+@media screen and (max-width: 768px) {
+    .split-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .image-section {
+        max-width: 70%;
+    }
+
+    .text-section {
+        max-width: 33%;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .text-section p {
+        font-size: 1.1em;
+    }
+
+    .cta-button {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .split-item {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .image-section {
+        max-width: 65%;
+    }
+
+    .text-section {
+        max-width: 30%;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .text-section p {
+        font-size: 0.6em;
+    }
+
+    .cta-button {
+        font-size: 0.6em;
+        padding: 5px 10px;
+    }
+}
+
+/* もっと見るボタンのコンテナ */
+.more-button-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+/* もっと見るボタン */
+.more-button {
+    display: inline-block;
+    padding: 10px 250px;
+    max-width: 800px;
+    background: linear-gradient(to right, #6D5134 0%, #B3936E 33.9%, #B2926E 67%, #6D5134 100%);
+    color: #fff;
+    text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #fff;
-    border-top: 2px solid #fff;
-    margin-top: 20px;
-    padding-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* ボタンのホバー時 */
+.more-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* レスポンシブ対応（スマホ向け） */
+@media screen and (max-width: 768px) {
+    .more-button {
+        font-size: 1rem;
+        padding: 3px 100px;
+    }
 }
 
 /* ここから設計士ページの装飾 */
