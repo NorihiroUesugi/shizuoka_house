@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="静岡県の土地活用・資産運用のご相談の窓口『静岡シャーメゾン支店』は、JR静岡駅南口より南へ徒歩5分。
+    賃貸住宅「シャーメゾン」経営、医療介護施設等、土地活用に関するご相談は、当支店へお気軽にお問い合わせください。
+    豊富な経験や情報を持つスタッフが土地活用のご相談を承ります 。">
     <title>土地活用・資産運用のご案内｜静岡シャーメゾン支店｜積水ハウス</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/reset.css" />
@@ -357,7 +359,7 @@
             
             <div class="reservation-button-container">
                 <a href="https://www.sekisuihouse.co.jp/event/detail.php?id={{event_id}}" target="_blank" class="reservation-link">
-                    <img src="./img/top_page/Reservation-button.webp" alt="ご予約・お申し込み"
+                    <img src="./imgs/top_page/Reservation-button.webp" alt="ご予約・お申し込み"
                         class="reservation-button-image" />
                 </a>
             </div>
@@ -370,7 +372,7 @@
             url: "https://www.sekisuihouse.co.jp/event/cgi/api/eventlist.php",
             type: "GET",
             data: {
-                siten: "818006" // 東京北SMH
+                siten: "487216" // 静岡SMH
             },
             success: function (data) {
                 rendTemplate(data);
@@ -400,8 +402,19 @@
 
         }
 
-        /* カルーセル、 HP全体アニメーション、 Swiperの設定 */
+        //<!-- カルーセル、HP全体アニメーション、Swiperの設定 -->pageshow
         document.addEventListener("pageshow", function () {
+            // メインカルーセル用Swiper（カルーセル）の初期化
+            initSwiper();
+
+            // イベント紹介用Swiperの初期化
+            initEventSwiper();
+
+            // Intersection Observer の初期化
+            initIntersectionObserver();
+        });
+        //<!-- カルーセル、HP全体アニメーション、Swiperの設定 -->DOMContentLoaded
+        document.addEventListener("DOMContentLoaded", function () {
             // メインカルーセル用Swiper（カルーセル）の初期化
             initSwiper();
 
@@ -504,11 +517,6 @@
                 observer.observe(element);
             });
         }
-
-        // DOMContentLoaded イベントで関数を呼び出す
-        document.addEventListener('DOMContentLoaded', () => {
-            initIntersectionObserver();
-        });
 
         function openModal(imageSrc) {
             const modal = document.getElementById("mapModal");
